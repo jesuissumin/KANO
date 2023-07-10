@@ -35,7 +35,7 @@ def run_stat(args: Namespace, logger: Logger = None) -> Tuple[float, float]:
         all_scores.append(model_scores)
     all_scores = np.array(all_scores)
 
-    # Report results
+    # Report resultsadd_train_args
     info(f'{args.num_runs}-time runs')
 
     # Report scores for each run

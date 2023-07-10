@@ -396,7 +396,7 @@ def pre_training(args: Namespace, logger: Logger = None) -> List[float]:
         loader = DataLoader(smiles,
                             batch_size=args.batch_size,
                             shuffle=True,
-                            num_workers=12,
+                            num_workers=args.num_workers,
                             drop_last=True)
         # Run training
         for epoch in range(args.epochs):

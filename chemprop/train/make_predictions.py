@@ -70,20 +70,20 @@ def make_predictions(args: Namespace, smiles: List[str] = None) -> List[Optional
         # model = build_model(args, encoder_name=args.encoder_name)
         # model.encoder.load_state_dict(torch.load(args.checkpoint_path))
         
-        # model_preds = predict(
-        #     model=model,
-        #     prompt=False,
-        #     data=test_data,
-        #     batch_size=args.batch_size,
-        #     scaler=scaler
-        # )
-        model_preds = get_emb(
+        model_preds = predict(
             model=model,
             prompt=False,
             data=test_data,
             batch_size=args.batch_size,
             scaler=scaler
         )
+        # model_preds = get_emb(
+        #     model=model,
+        #     prompt=False,
+        #     data=test_data,
+        #     batch_size=args.batch_size,
+        #     scaler=scaler
+        # )
         # sum_preds += np.array(model_preds)
 
     # Ensemble predictions

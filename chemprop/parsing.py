@@ -29,7 +29,7 @@ def add_predict_args(parser: ArgumentParser):
     parser.add_argument('--checkpoint_dir', type=str,
                         help='Directory from which to load model checkpoints'
                             '(walks directory and ensembles all models that are found)',
-                        default='./ckpt')
+                        default=None)
     parser.add_argument('--checkpoint_path', type=str,
                         help='Path to model checkpoint (.pt file)')
     parser.add_argument('--batch_size', type=int, default=50,
@@ -138,6 +138,8 @@ def add_train_args(parser: ArgumentParser):
     parser.add_argument('--config_path', type=str,
                         help='Path to a .json file containing arguments. Any arguments present in the config'
                              'file will override arguments specified via the command line or by the defaults.')
+    parser.add_argument('--num_workers', type=int, default = 12,
+                        help="number of processors for dataloader")
 
     # Training arguments
     parser.add_argument('--epochs', type=int, default=30,
